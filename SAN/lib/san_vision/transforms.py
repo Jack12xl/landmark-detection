@@ -87,7 +87,7 @@ class ToPILImage(object):
     npimg = pic
     mode = None
     if isinstance(pic, torch.FloatTensor):
-      pic = pic.mul(255).byte()
+      pic = pic.mul(255).bool()
     if torch.is_tensor(pic):
       npimg = np.transpose(pic.numpy(), (1, 2, 0))
     assert isinstance(npimg, np.ndarray), 'pic should be Tensor or ndarray'
